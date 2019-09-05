@@ -47,7 +47,7 @@ public:
       llvm::errs() << "Decl in the TU:\n";
       D->dump();
       llvm::errs() << "Its start location is: '"
-                   << D->getLocStart().printToString(Context.getSourceManager())
+                   << D->getBeginLoc().printToString(Context.getSourceManager())
                    << "'\n";
     }
   }

@@ -102,7 +102,7 @@ public:
         Context = &d->getASTContext();
         SM = &Context->getSourceManager();
       }
-      llvm::errs() << "    begin loc: " << ule->getLocStart().printToString(*SM)
+      llvm::errs() << "    begin loc: " << ule->getBeginLoc().printToString(*SM)
                    << "\n";
       llvm::errs() << "    end loc: " << ule->getLocEnd().printToString(*SM)
                    << "\n";
@@ -178,7 +178,7 @@ struct StuffDumper : public MatchFinder::MatchCallback {
 struct RecordDumper : public MatchFinder::MatchCallback {
   virtual void run(const MatchFinder::MatchResult &Result) {
     auto *d = Result.Nodes.getNodeAs<TypeLoc>("stuff");
-    SourceLocation locstart = d->getLocStart();
+    SourceLocation locstart = d->getBeginLoc();
     llvm::errs() << "*\n";
     llvm::errs() << " start: " << locstart.printToString(*Result.SourceManager)
                  << "\n";

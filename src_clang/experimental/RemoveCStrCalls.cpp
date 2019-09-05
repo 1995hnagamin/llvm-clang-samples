@@ -76,7 +76,7 @@ using clang::tooling::CompilationDatabase;
 template <typename T>
 static std::string getText(const SourceManager &SourceManager, const T &Node) {
   SourceLocation StartSpellingLocation =
-      SourceManager.getSpellingLoc(Node.getLocStart());
+      SourceManager.getSpellingLoc(Node.getBeginLoc());
   SourceLocation EndSpellingLocation =
       SourceManager.getSpellingLoc(Node.getLocEnd());
   if (!StartSpellingLocation.isValid() || !EndSpellingLocation.isValid()) {

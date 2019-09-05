@@ -41,12 +41,12 @@ public:
       IfStmt *IfStatement = cast<IfStmt>(s);
       Stmt *Then = IfStatement->getThen();
 
-      TheRewriter.InsertText(Then->getLocStart(), "// the 'if' part\n", true,
+      TheRewriter.InsertText(Then->getBeginLoc(), "// the 'if' part\n", true,
                              true);
 
       Stmt *Else = IfStatement->getElse();
       if (Else)
-        TheRewriter.InsertText(Else->getLocStart(), "// the 'else' part\n",
+        TheRewriter.InsertText(Else->getBeginLoc(), "// the 'else' part\n",
                                true, true);
     }
 
