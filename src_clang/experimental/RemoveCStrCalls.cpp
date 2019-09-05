@@ -78,7 +78,7 @@ static std::string getText(const SourceManager &SourceManager, const T &Node) {
   SourceLocation StartSpellingLocation =
       SourceManager.getSpellingLoc(Node.getBeginLoc());
   SourceLocation EndSpellingLocation =
-      SourceManager.getSpellingLoc(Node.getLocEnd());
+      SourceManager.getSpellingLoc(Node.getEndLoc());
   if (!StartSpellingLocation.isValid() || !EndSpellingLocation.isValid()) {
     return std::string();
   }

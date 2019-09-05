@@ -76,7 +76,7 @@ public:
       // And after
       std::stringstream SSAfter;
       SSAfter << "\n// End function " << FuncName;
-      ST = FuncBody->getLocEnd().getLocWithOffset(1);
+      ST = FuncBody->getEndLoc().getLocWithOffset(1);
       TheRewriter.InsertText(ST, SSAfter.str(), true, true);
     }
 

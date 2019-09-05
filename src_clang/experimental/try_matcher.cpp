@@ -104,7 +104,7 @@ public:
       }
       llvm::errs() << "    begin loc: " << ule->getBeginLoc().printToString(*SM)
                    << "\n";
-      llvm::errs() << "    end loc: " << ule->getLocEnd().printToString(*SM)
+      llvm::errs() << "    end loc: " << ule->getEndLoc().printToString(*SM)
                    << "\n";
 
       NestedNameSpecifierLoc ll = ule->getQualifierLoc();
@@ -182,7 +182,7 @@ struct RecordDumper : public MatchFinder::MatchCallback {
     llvm::errs() << "*\n";
     llvm::errs() << " start: " << locstart.printToString(*Result.SourceManager)
                  << "\n";
-    SourceLocation locend = d->getLocEnd();
+    SourceLocation locend = d->getEndLoc();
     llvm::errs() << " end: " << locend.printToString(*Result.SourceManager)
                  << "\n";
   }
